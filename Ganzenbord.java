@@ -6,9 +6,12 @@
  * 
  * 
  * Dag Felix,
- * Dit is dus mijn weekopdracht, bij afwezigheid van Blackjack. Dat is nog te moeilijk voor mij.
- * Ik heb t idee dat dit heel goed ging, to ik pr
+ * Dit is mijn weekopdracht, bij afwezigheid van Blackjack. Dat is nog te hoog gegrepen voor mij.
+ * Ik heb t idee dat dit wel goed ging, het kostte maar zeven uur. Alles wat ik weet zit er in, 
+ * en wat ik niet goede weet kun je ook wel zien: het laten samenwerken en met elkaar praten van de methoden
+ * is mijn moeilijkste ding op het moment.
  * 
+ * nog niet alle functionaliteit zit er netjes in.
  * 
  * 
  */
@@ -37,7 +40,7 @@ static int worp;
 			for(int a = 0 ; a < 64 ; a++){
 				Ganzenbord.dobbelsteen();
 				Ganzenbord.verplaatsen();
-				Ganzenbord.ennu(positie, worp);
+				Ganzenbord.ennu(positie, worp);  //  <-- dit is het toppunt van mijn puzzel geweest
 				}
 			} else {
 			System.out.println("Het spel is afgelopen");
@@ -70,21 +73,21 @@ public static int verplaatsen() {
 public static void ennu(int positie, int worp) {
 	//int p = positie;
 	//int w = worp;
-	System.out.println("DEBUG");
-	System.out.println(" dit is de value van p " + positie );
-	System.out.println(" dit is de value van w " + worp );
+	System.out.println("---DEBUG");
+	System.out.println("---dit is de value van p " + positie );
+	System.out.println("---dit is de value van w " + worp );
 	
 	if(positie == (10 | 20 | 30 | 40 | 50 | 60 )) {
 	System.out.println("Je staat op een bonusveld, en gaat extra vooruit");
 	positie = (positie + worp);
 	}else if(positie == 23) {
-		System.out.println("Gevangenis, je bent af!");	
+		System.out.println("Gevangenis, je bent af!\n");	
 	}else if(positie >= 63) {
-		System.out.println("Finish, je hebt gewonnen!");
+		System.out.println("Finish, je hebt gewonnen!\n");
 	}else if(positie == (25 | 45)) {
-		System.out.println("Oeh, balen, ga terug naar start!");
+		System.out.println("Oeh, balen, ga terug naar start!\n");
 	}else {
-		System.out.println("Je bent geland op een veilig veld.");
+		System.out.println("Je bent geland op een veilig veld.\n");
 	}
 	}//endofennu
 }//endof Ganzenbord
