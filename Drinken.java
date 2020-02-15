@@ -1,4 +1,5 @@
-/*
+/* FINAL: ik ben er klaar mee. 150220
+ * 
  * Michiel Janssens
  * 08/02/2020
  * MINI opdracht
@@ -10,7 +11,6 @@
  * 
  */
 import java.util.Scanner;
-
 public class Drinken {
 	public static void main(String[] args) {
 	//op een dag komt Klaas de slijterij binnen...
@@ -27,8 +27,7 @@ public class Drinken {
 		Slijter.checkLeeftijd(klaas.getter());
 		
 	//zo kan i als leeftijd NIET private is:
-	//	Slijter.checkLeeftijd(klaas.leeftijd);
-				
+	//	Slijter.checkLeeftijd(klaas.leeftijd);		
 
 	}//endofmain
 }//endofDrinken
@@ -42,8 +41,7 @@ class Koper {
 //vraag-om-leetijd-methode
 	public void invoer() {
 	//scanner instantieren
-		String s = "Tiep dat hier maar eens...";
-		Scanner sc = new Scanner(s);	
+		Scanner sc = new Scanner(System.in);	
 	// vraag om leeftijd
 		System.out.println("Zeg jongeman, hoe oud ben jij eigenlijk?:");		
 	// invulveld voor leeftijd koper & maak van de input een integer
@@ -62,7 +60,7 @@ class Slijter {
 	static void welkom() {
 		System.out.println("Welkom bij Jaap Zatlap, uw vertrouwde slijter");
 		System.out.println("#############################################\n");
-		System.out.println("Helaasch moeten ook wij ons aan de wet houden,\nvandaar de volgende huisregels:");
+		System.out.println(" Helaasch moeten ook wij ons aan de wet houden,\nvandaar de volgende huisregels:");
 		System.out.println(" ------------------------------------------- ");
 		System.out.println("|  ben jij:                                 |");
 		System.out.println("|   jonger dan 16:  geen alcohol        :(  |");
