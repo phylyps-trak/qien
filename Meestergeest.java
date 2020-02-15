@@ -5,6 +5,7 @@
  * 12/02/2020
  * MASTERMIND
  * 
+ * EERSTE POGING, KROMME AANPAK
  * 
  */
 import java.util.Random;

@@ -7,7 +7,7 @@
  * 
  * 15/02 laatste versie: 
  * eindelijk het doorgeven van de waarde van leeftijd netjes gekregen.
- * Zonder clas "Koper" werd het allemaal een beetje lastig...
+ * Zonder class "Koper" werd het allemaal een beetje lastig...
  * 
  */
 import java.util.Scanner;
@@ -48,7 +48,8 @@ class Koper {
 		//this. stopt het in de class z'n field (e.g. mijn.leeftijd...)
 		this.leeftijd = Integer.parseInt(sc.nextLine()); 
 	// print invoer terug naar console
-		System.out.println("...en jij beweert dat jouw leeftijd " + leeftijd + " is!?\n\n");	
+		System.out.println("...en jij beweert dat jouw leeftijd " + leeftijd + " is!?\n\n");
+		sc.close();	
 	}
 //
 	public int getter() {
@@ -60,12 +61,12 @@ class Slijter {
 	static void welkom() {
 		System.out.println("Welkom bij Jaap Zatlap, uw vertrouwde slijter");
 		System.out.println("#############################################\n");
-		System.out.println(" Helaasch moeten ook wij ons aan de wet houden,\nvandaar de volgende huisregels:");
+		System.out.println(" Helaasch moeten ook wij ons aan de wet houden,\n vandaar de volgende huisregels:");
 		System.out.println(" ------------------------------------------- ");
 		System.out.println("|  ben jij:                                 |");
-		System.out.println("|   jonger dan 16:  geen alcohol        :(  |");
-		System.out.println("|   16 of 17:       bier fris wijn      ;)  |");
-		System.out.println("|   18 of ouder:    zuip je de cirrose! :p  |");
+		System.out.println("|   jonger dan 16:  geen alcohol            |");
+		System.out.println("|   16 of 17:       bier fris wijn          |");
+		System.out.println("|   18 of ouder:    zuip je de cirrose!     |");
 		System.out.println(" ------------------------------------------- \n\n");
 	}//endofwelkom
 

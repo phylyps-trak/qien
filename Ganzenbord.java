@@ -1,18 +1,12 @@
 /*
  * Michiel Janssens
  * 09/02/2020
- * Ganzenbord - eigenlijk voor de masterclass begon
+ * Ganzenbord - moest eigenlijk voor de masterclass begon
  * beter laat dan nooit, want die blackjack snap ik nog te weinig van.
  * 
- * 
- * Dag Felix,
- * Dit is mijn weekopdracht, bij afwezigheid van Blackjack. Dat is nog te hoog gegrepen voor mij.
- * Ik heb t idee dat dit wel goed ging, het kostte maar zeven uur. Alles wat ik weet zit er in, 
- * en wat ik niet goede weet kun je ook wel zien: het laten samenwerken en met elkaar praten van de methoden
- * is mijn moeilijkste ding op het moment.
- * 
- * nog niet alle functionaliteit zit er netjes in.
- * 
+ * UPDATE 150220
+ * de boel maar eens ge-class-ificeert
+ * en uitgebreid
  * 
  */
 
@@ -25,17 +19,22 @@ public class Ganzenbord {
 //uhm, globale variabelen op class niveau?
 static int positie; 
 static int worp;
-	
+public class Spel{	
 	public static void main(String[] args) {
-			
-		//welkom
+		//welkom();
+		
+		}//endofmain
+//welkom methode
+	void welkom() {
 			System.out.println("######################################");
 			System.out.println("#  welkom bij een potje ouderwetsch  #");
 			System.out.println("#           GANZENBORDEN!            #");
 			System.out.println("#                                    #");
 			System.out.println("######################################\n\n");
-
-
+		}//endofwelkom
+	
+//spel is bezig methode
+	void spelen() {
 		if(positie < 63) {
 			for(int a = 0 ; a < 64 ; a++){
 				Ganzenbord.dobbelsteen();
@@ -45,8 +44,8 @@ static int worp;
 			} else {
 			System.out.println("Het spel is afgelopen");
 			}
-		}//endofmain
-
+		}//endof spel is bezig
+	
 	//deze methode pakt invoer G en spuugt dan een random getal 0-5 uit...
 public static int dobbelsteen() {
 	//werp dobbelsteen
@@ -90,4 +89,11 @@ public static void ennu(int positie, int worp) {
 		System.out.println("Je bent geland op een veilig veld.\n");
 	}
 	}//endofennu
-}//endof Ganzenbord
+//methoden voor 
+//bonus
+//gevangenis
+//finish
+//terug naar start
+
+}//endofSpel
+}//endofGanzenbord
