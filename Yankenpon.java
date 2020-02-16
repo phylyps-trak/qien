@@ -8,11 +8,11 @@
  * om verwarring te voorkomen: throw betekend hier niet "javaklets over if statement op afstand",
  * maar: de shape die de speler "gooit" in het spel. 
  * 
- * VERSIE 2: 15/02 als je allemaal classes maakt werkt het eens stuk beter.
- * VERSIE 3: 15/02 nu met random ROBOT speler
- * VERSIE 4: 15/02 nu met repeat ja/nee
- * VERSIE 4.2: 16/02 als je bij repeat n, of iets raars intiept kan je het nogmaals doen
- * VERSIE 5: 16/02 als je iets anders dan x p r intiept zegt i: doe ff normaal joh
+ * VERSIE 2:	15/02 als je allemaal classes maakt werkt het eens stuk beter.
+ * VERSIE 3:  	15/02 nu met random ROBOT speler
+ * VERSIE 4:	15/02 nu met repeat ja/nee
+ * VERSIE 4.2:	16/02 als je bij repeat n, of iets raars intiept kan je het nogmaals doen
+ * VERSIE 5:	16/02 als je iets anders dan x p r intiept zegt i: doe ff normaal joh
  * TODO -->> VERSIE 6: met moeilijke ASCII
  * TODO -->> VERSIE 7: rock paper scissors lizard spock?
  * TODO -->> speler naam dynamisch opbouwen. 
@@ -128,18 +128,18 @@ class Spel{
 	//DOORGAAN OF STOPPEN
 	String stopDoor() {
 		{
-		System.out.println("\n================");
-		System.out.println("Ben je in voor een revanche?\n  (type j / n)");
+			System.out.println("\n================");
+			System.out.println("Ben je in voor een revanche?\n  (type j / n)");
 		}
 		do {
-		this.con = Yankenpon.sc.nextLine(); 
-		if (con.contentEquals("n")) {
-			System.out.println("Nou, ga maar lekker iets anders doen dan...");
-		} else if (con.contentEquals("j")) {
-		      System.out.println("\n...here we go again!\n");
-	    } else {
-	    	System.out.println("Je invoer slaat nergens op, gek!");
-	    }
+			this.con = Yankenpon.sc.nextLine(); 
+			if (con.contentEquals("n")) {
+				System.out.println("Nou, ga maar lekker iets anders doen dan...");
+			} else if (con.contentEquals("j")) {
+				System.out.println("\n...here we go again!\n");
+			} else {
+				System.out.println("Je invoer slaat nergens op, gek!");
+			}
 		} while (!con.contentEquals("j"));
 		return con;
 	}	
@@ -150,10 +150,18 @@ class Speler1{
 	private String p1;
 
 	void speler1() {
-		System.out.println("Dawa, voer hier je keuze in:");
-		this.p1 = Yankenpon.sc.nextLine();  // Read user input
-		System.out.println("Jouw throw is: " + p1);  // Output user input
-		System.out.println("================\n");
+		do {
+			System.out.println("Dawa, voer hier je keuze in:");
+			this.p1 = Yankenpon.sc.nextLine();  // Read user input
+
+			if(!(p1.equals("x") || p1.equals("r") || p1.equals("p"))) {
+				System.out.println("Doe ff normaal en throw een geldige shape!");
+				System.out.println("----------------");
+			}else {
+				System.out.println("Jouw throw is: " + p1);  // Output user input
+				System.out.println("================\n");
+			}
+		}while (!(p1.equals("x") || p1.equals("r") || p1.equals("p")));
 	}//endofspeler1
 
 	public String getter1() {
