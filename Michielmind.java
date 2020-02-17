@@ -13,33 +13,32 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Michielmind {
-	//====================
+//====================
 	public static void main(String[] args) {
+		Speler michiel = new Speler();
+		SpelVerloop spel1 = new SpelVerloop();
+		
 
-		// TODO welkom en uitleg
-		SpelVerloop.welkom();
-		System.out.println("\n");
+				spel1.welkom();
 
-		//??VRAAG: kan dit makkelijker??
-		new SpelVerloop().laatCodeZien(new SpelVerloop().robotCodeMaken());
-		//eerste beurt
-		System.out.println("=======================");
-		System.out.println("...en nu jij, raden maar!\n");
-		System.out.println("(Type je letters gescheiden door een komma)");
-
-		new Speler().doeEenGooi();
-		new Speler().vergelijkDeGooi();
-		/*
-		//alle volgende beurten, tot max. 10 keer		
-		while(Speler.turnCounter < 10 ) {
-			System.out.println(" niet helemaal goed, nog eens:\n");
-			new Speler().doeEenGooi();
-			new Speler().vergelijkDeGooi();
-		}
-*/
-
-
-
+				spel1.laatCodeZien( robotCodeMaken() );
+				
+				//eerste beurt
+				System.out.println("=======================");
+				System.out.println("...en nu jij, raden maar!\n");
+				System.out.println("(Type je letters gescheiden door een komma)");
+				michiel.doeEenGooi();	
+				michiel.vergelijkDeGooi(michiel.geefGokDoor());
+				
+/*
+				while(michiel.turnCounter < 10 ) {
+					System.out.println(" niet helemaal goed, nog eens:\n");
+					michiel.doeEenGooi();
+					michiel.vergelijkDeGooi(robotCodeMaken());	
+				}
+*/		
+		
+		
 		// TODO GOOGLEN hoe je ze vergelijk, de karakters
 
 		// TODO punt geven als gelijk
@@ -48,17 +47,31 @@ public class Michielmind {
 		// nu proberen met twee karakters computer code
 		// met if statement & for loop	
 	}//endof main
-	//##############
+static String[] kleuren = {"A","B","C","D","E","F","G","H"};
+static String[] geheimeCode = new String[5];
+static String[] robotCodeMaken() {
+
+			for ( int x = 0 ; x < 5 ; x++ ) {
+				Random r = new Random();
+				int getal = r.nextInt(8);
+				geheimeCode[x] = kleuren[getal];
+			}
+			return geheimeCode;
+		}//endof robotCodeMaken
+
+
+
+//##############
 	static class Speler{
 		// TODO dynamische naamgeving
 		String naam;
+		// tellertjes
 		static int goedCounter;
 		static int bijnaCounter;
-		//beurtenteller
-		static int turnCounter = 0;
-		//dit is de array waar de input in moet
-		static String[] gokje = new String[5];
-		//==========			// speler doet een poging		
+		int turnCounter = 0;
+		// dit is de array waar de input in moet
+		String[] gokje = new String[5];
+//==========			// speler doet een poging		
 		void doeEenGooi() {
 			Scanner in = new Scanner(System.in);
 			System.out.print("-> ");	String line = in.nextLine(); 
@@ -69,30 +82,42 @@ public class Michielmind {
 				System.out.print(" " + s +" |");
 
 		}//endof doeEenGooi
-		
-		void vergelijkDeGooi() {
+		String[] geefGokDoor() {
+			String [] poging = new String[5];
+			poging = gokje;
+			return poging;
+		}
+//==========
+		void vergelijkDeGooi(String[] gc) {
 			//doorloop dit if statemen voor elk van de vijf posities in gokje
-			if( gokje[0].equals(SpelVerloop.geheimeCode[0])) {
+			if( geheimeCode[0].equals(gc[0])) {
 				goedCounter++;
 				System.out.println("Je hebt er " + goedCounter + "goed");
-			}else if ( gokje[0].equals(SpelVerloop.geheimeCode[ 1 | 2 | 3 | 4] )) {
+				/*
+			}else if ( gokje[0].equals(SpelVerloop.geheimeCode[ 1 ] )) {
 				bijnaCounter++;
 				System.out.println("Je hebt er " + bijnaCounter + "bijna");
+			*/
 			}else {
 				System.out.println("Dat lijkt er helemaal niet op...");
 			}
 			turnCounter++;
 		}//endof vergelijkDeGooi
-
+		
+/*		//NIEUWE POGING VERGELIJKCHECKER
+		String checkOfGoed(String a) {
+			if(a.contentEquals(geheimeCode[0])) {
+			}return "Je hebt er 1 goed";
+		}
+*/		
 	}//endof Speler
-	//##########################
+//##########################
 	static class SpelVerloop{
-		String[] kleuren = {"A","B","C","D","E","F","G","H"};
-		static //de geheime code moet hier in
-		String[] geheimeCode = new String[5];
 
-		//=================			//INTRO hahah lekker ascii klooien, heerlijk
-		static void welkom() {
+		//de geheime code moet hier in
+			
+//=================			//INTRO hahah lekker ascii klooien, heerlijk
+		void welkom() {
 			System.out.println("######################################");
 			System.out.println("    Welkom bij MASTERMIND superieur");
 			System.out.println("  ----------------------------------- ");
@@ -107,20 +132,11 @@ public class Michielmind {
 			System.out.println("      (up to 32000 permutations)      ");
 			System.out.println(" ------ Spel van het jaar 1975! ------");
 			System.out.println("######################################");
-
+			System.out.println("\n");
 		}//endofwelkom
-		//==============			//BASIS ARRAY, 4 random uit halen -> code array
-		String[] robotCodeMaken() {
-
-
-			for ( int x = 0 ; x < 5 ; x++ ) {
-				Random r = new Random();
-				int getal = r.nextInt(8);
-				geheimeCode[x] = kleuren[getal];
-			}
-			return geheimeCode;
-		}//endof robotCodeMaken
-		//==========				//extra methodetje om de gevulde codearray netjes te laten zien
+//==============			//BASIS ARRAY, 4 random uit halen -> code array
+		
+//==========				//extra methodetje om de gevulde codearray netjes te laten zien
 		void laatCodeZien( String[] codeArray){
 			System.out.println("   [de geheime code]");
 			System.out.println("  -------------------");
