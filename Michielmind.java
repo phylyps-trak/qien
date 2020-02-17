@@ -9,7 +9,9 @@
  * (zie mijn vorige mastermind "Meestergeest"...)
  * 
  */
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Michielmind {
 //====================
@@ -23,8 +25,10 @@ public class Michielmind {
 		new SpelVerloop().laatCodeZien(new SpelVerloop().robotCodeMaken());
 	
 		System.out.println("=======================");
-		System.out.println("...en nu jij, raden maar!");
-
+		System.out.println("...en nu jij, raden maar!\n");
+		System.out.println("(Type je letters gescheiden door een komma)");
+		
+		new Speler().doeEenGooi();
 		
 		// TODO input speler 1 karakter
 		// scanner importeren
@@ -40,10 +44,18 @@ public class Michielmind {
 		// met if statement & for loop	
 	}//endof main
 //##############
-	class Speler{
+	static class Speler{
 		//dit is de array waar de input in moet
 		String[] gokje = new String[5];
-		
+		void doeEenGooi() {
+			Scanner in = new Scanner(System.in);
+			System.out.print("-> ");	String line = in.nextLine(); 
+			//hak de input in stukjes bij de komma, maak hoofdletters van, stop in arra
+			String[] gokje = line.toUpperCase().split(",");
+			System.out.print(" |");
+			for(String s: gokje)
+				System.out.print(" " + s +" |");
+		}
 
 	}//endof Speler
 //##########################
