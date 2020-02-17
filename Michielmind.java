@@ -9,44 +9,56 @@
  * (zie mijn vorige mastermind "Meestergeest"...)
  * 
  */
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Michielmind {
-//====================
+	//====================
 	public static void main(String[] args) {
 
 		// TODO welkom en uitleg
 		SpelVerloop.welkom();
 		System.out.println("\n");
 
-//??VRAAG: kan dit makkelijker??
+		//??VRAAG: kan dit makkelijker??
 		new SpelVerloop().laatCodeZien(new SpelVerloop().robotCodeMaken());
-	
+		//eerste beurt
 		System.out.println("=======================");
 		System.out.println("...en nu jij, raden maar!\n");
 		System.out.println("(Type je letters gescheiden door een komma)");
-		
+
 		new Speler().doeEenGooi();
-		
-		// TODO input speler 1 karakter
-		// scanner importeren
-		// Speler vragen om input
-		// TODO print ze allebei op het scherm
+		new Speler().vergelijkDeGooi();
+		/*
+		//alle volgende beurten, tot max. 10 keer		
+		while(Speler.turnCounter < 10 ) {
+			System.out.println(" niet helemaal goed, nog eens:\n");
+			new Speler().doeEenGooi();
+			new Speler().vergelijkDeGooi();
+		}
+*/
+
+
+
 		// TODO GOOGLEN hoe je ze vergelijk, de karakters
-		// je mag tien keer raden
-		// check of dat ja of nee is
+
 		// TODO punt geven als gelijk
 		// TODO geen punt als i goed
 		//=================
 		// nu proberen met twee karakters computer code
 		// met if statement & for loop	
 	}//endof main
-//##############
+	//##############
 	static class Speler{
+		// TODO dynamische naamgeving
+		String naam;
+		static int goedCounter;
+		static int bijnaCounter;
+		//beurtenteller
+		static int turnCounter = 0;
 		//dit is de array waar de input in moet
-		String[] gokje = new String[5];
+		static String[] gokje = new String[5];
+		//==========			// speler doet een poging		
 		void doeEenGooi() {
 			Scanner in = new Scanner(System.in);
 			System.out.print("-> ");	String line = in.nextLine(); 
@@ -55,13 +67,31 @@ public class Michielmind {
 			System.out.print(" |");
 			for(String s: gokje)
 				System.out.print(" " + s +" |");
-		}
+
+		}//endof doeEenGooi
+		
+		void vergelijkDeGooi() {
+			//doorloop dit if statemen voor elk van de vijf posities in gokje
+			if( gokje[0].equals(SpelVerloop.geheimeCode[0])) {
+				goedCounter++;
+				System.out.println("Je hebt er " + goedCounter + "goed");
+			}else if ( gokje[0].equals(SpelVerloop.geheimeCode[ 1 | 2 | 3 | 4] )) {
+				bijnaCounter++;
+				System.out.println("Je hebt er " + bijnaCounter + "bijna");
+			}else {
+				System.out.println("Dat lijkt er helemaal niet op...");
+			}
+			turnCounter++;
+		}//endof vergelijkDeGooi
 
 	}//endof Speler
-//##########################
+	//##########################
 	static class SpelVerloop{
-		
-//=================			//INTRO hahah lekker ascii klooien, heerlijk
+		String[] kleuren = {"A","B","C","D","E","F","G","H"};
+		static //de geheime code moet hier in
+		String[] geheimeCode = new String[5];
+
+		//=================			//INTRO hahah lekker ascii klooien, heerlijk
 		static void welkom() {
 			System.out.println("######################################");
 			System.out.println("    Welkom bij MASTERMIND superieur");
@@ -79,11 +109,9 @@ public class Michielmind {
 			System.out.println("######################################");
 
 		}//endofwelkom
-//==============			//BASIS ARRAY, 4 random uit halen -> code array
+		//==============			//BASIS ARRAY, 4 random uit halen -> code array
 		String[] robotCodeMaken() {
-			String[] kleuren = {"A","B","C","D","E","F","G","H"};
-			//de geheime code moet hier in
-			String[] geheimeCode = new String[5];
+
 
 			for ( int x = 0 ; x < 5 ; x++ ) {
 				Random r = new Random();
@@ -92,7 +120,7 @@ public class Michielmind {
 			}
 			return geheimeCode;
 		}//endof robotCodeMaken
-//==========				//extra methodetje om de gevulde codearray netjes te laten zien
+		//==========				//extra methodetje om de gevulde codearray netjes te laten zien
 		void laatCodeZien( String[] codeArray){
 			System.out.println("   [de geheime code]");
 			System.out.println("  -------------------");
@@ -106,5 +134,5 @@ public class Michielmind {
 		}//endof laatCodeZien
 
 	}//endofSpelVerloop
-	
+
 }//endofMichielmind
