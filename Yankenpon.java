@@ -181,14 +181,14 @@ class Speler3{
 	//hier wordt het random getal in opgeslagen
 	int gekozen = verkrijggetalonder3();
 
-	//maakt een random getal van 0, 1 of 2 aan
+//maakt een random getal van 0, 1 of 2 aan
 	int verkrijggetalonder3() {
 		Random r = new Random();
 		int check = r.nextInt(3);
 		//System.out.println(">>"+check);
 		return check;
 	}
-
+//dit is wat i doet
 	void speler3() {
 		System.out.println("Robbie de Robot maakt een pseudo-random keuze:");
 
