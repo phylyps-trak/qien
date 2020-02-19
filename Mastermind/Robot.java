@@ -9,35 +9,61 @@ public class Robot {
 	String[] geheimeCode = new String[5];
 
 	//========	
-	public String[] robotCodeMaken() {
+	public void robotCodeMaken() {
 		for ( int x = 0 ; x < 5 ; x++ ) {
 			Random r = new Random();
 			int getal = r.nextInt(8);
 			geheimeCode[x] = kleuren[getal];
 		}
-		return geheimeCode;
-
 	}//endof robotCodeMaken
+	public String[] getRobotCode() {
+		return geheimeCode;
+	}
 	//==========
 	void vergelijkDeGooi(Speler s) {
 		//helemaal goed
-		for (int i = 0 ; i < geheimeCode.length ; i++) {
-			if(geheimeCode[i].equals(s.gokje[i])) {
-				s.setGoedCounter(1);
+		for (int i = 0 ; i < getRobotCode().length ; i++) {
+//			System.out.println(">>DEBUG getGokje>> " + Arrays.toString(s.getGokje()));
+//			System.out.println(">>DEBUG robotCodeMaken>> " + Arrays.toString(getRobotCode()));
+			if (Arrays.equals(s.getGokje(), geheimeCode)) {
+				System.out.println(" *** Dikke gefeli, ouwe, je heb gewonne! *** ");
+			break;	
+			}else if(s.getGokje()[i].equals(geheimeCode[i])) {
+				  s.setGoedCounter(1);
+				}
+				else if ( Arrays.asList(s.getGokje()).contains(geheimeCode[i]) ) {
+				  s.setBijnaCounter(1);
+				} else {
+				    System.out.println("...dat lijkt er helemáál niet op!");
+				}
+			
+		}
+			
+		System.out.println("\nJe hebt er " + s.getGoedCounter() + " goed...");
+		System.out.println("Je hebt er " + s.getBijnaCounter() + " bijna goed...");
+		s.turnCounter--;
+		System.out.println("(Oh nee! Je hebt nog maar " + s.turnCounter + " beurten om de code te kraken!)");
 
-				boolean a = Arrays.asList(s.gokje).contains(geheimeCode[i]);
-				if (a)s.bijnaCounter++;
+	
+}//endof vergelijkDeGooi
+}
+
+/* OUWE VERSIE
+ * if(s.getGokje()[i].equals(getRobotCode()[i])) {
+				s.setGoedCounter(1);
+				System.out.println("DEBUG");
+
+				//bijna goed
+				boolean a = Arrays.asList(s.getGokje()).contains(getRobotCode()[i]);
+				if (a) {s.bijnaCounter++;}
 
 			}else {
 				System.out.println("...dat lijkt er helemáál niet op!");
 			}
 		}
-		System.out.println("Je hebt er " + s.getGoedCounter() + " goed...");
-		System.out.println("Je hebt er " + s.getBijnaCounter() + " bijna goed...");
-		s.turnCounter--;
-		System.out.println("(Oh nee! Je hebt nog maar " + s.turnCounter + " beurten om de code te kraken!)");
+		
+ */
 
-		//boolean contains = Arrays.stream(gokje).anyMatch(geheimeCode[0]::equals);
-		//System.out.println("DEBUG2 " + contains + "\n");
-	}
-}//endof vergelijkDeGooi
+
+
+

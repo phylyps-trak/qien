@@ -3,32 +3,32 @@ package Mastermind;
 import java.util.Scanner;
 
 public class Speler{
-	// TODO dynamische naamgeving
+// TODO dynamische naamgeving
 
-	
-	// tellertjes
+
+// tellertjes
 	protected int goedCounter = 0;
 	protected int bijnaCounter = 0;
 	protected int turnCounter = 10;
 	protected String naam;
-	
-	// dit is de array waar de input in moet
-	String[] gokje = new String[5];
-	
-//========			//CONSTRRRRRUCTORRRRR --> nog dingen mee doen
+
+// dit is de array waar de input in moet
+	protected String[] gokje;
+
+//========				//CONSTRRRRRUCTORRRRR --> nog dingen mee doen
 	Speler(String naam, int a, int b, int c) {
 		this.goedCounter = a;
 		this.bijnaCounter = b;
 		this.turnCounter = c;
 		this.naam = naam;
 	}
-	
+
 //==========			// de speler doet een poging		
 	void doeEenGooi() {
 		Scanner in = new Scanner(System.in);
 		System.out.print("-> ");	String line = in.nextLine(); 
 		//hak de input in stukjes bij de komma, maak hoofdletters van, stop in arra
-		gokje = line.toUpperCase().split(",");
+		this.gokje = line.toUpperCase().split(",");
 		System.out.print("\n |");
 		for(String s: gokje)
 			System.out.print(" " + s +" |");
@@ -38,7 +38,14 @@ public class Speler{
 
 	}//endof doeEenGooi
 
-//==============		//GETTERs & SETTERs
+//==============		//GETTERs & SETTERs & REsetters
+	public void reset () {
+		goedCounter = 0;
+		bijnaCounter = 0;
+	}
+	public String[] getGokje() {
+		return gokje;
+	}
 	public int getGoedCounter() {
 		return goedCounter;
 	}

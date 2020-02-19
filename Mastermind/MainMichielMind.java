@@ -19,6 +19,18 @@ public class MainMichielMind {
 		Speler michiel = new Speler("Michiel", 0,0,10);
 		SpelVerloop spel1 = new SpelVerloop();
 		Robot robot = new Robot();
+		robot.robotCodeMaken();
+
+		spel1.welkom();
+		spel1.laatCodeZien(robot.getRobotCode() );
+		spel1.eersteBeurt();
+		 while(michiel.turnCounter > 0 || !(michiel.goedCounter == 5) ) {
+             michiel.reset();
+             michiel.doeEenGooi();
+			robot.vergelijkDeGooi(michiel);
+			
+		}
+		
 		
 		
 		/*
@@ -28,12 +40,5 @@ public class MainMichielMind {
 		System.out.println("Je hebt er " + michiel.getGoedCounter() + " goed...");     
 		System.out.println("Je hebt er " + michiel.getBijnaCounter() + " bijna goed...");
 */
-		spel1.welkom();
-		spel1.laatCodeZien(new Robot().robotCodeMaken() );
-		spel1.eersteBeurt();
-		while(michiel.turnCounter > 0 ) {
-			michiel.doeEenGooi();
-			robot.vergelijkDeGooi(michiel);
-		}
 	}//endof main
 }//endofMichielmind
