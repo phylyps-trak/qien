@@ -7,8 +7,8 @@ import Mastermind.Speler;
 public class Robot {
 	String[] kleuren = {"A","B","C","D","E","F","G","H"};
 	String[] geheimeCode = new String[5];
-	
-//========	
+
+	//========	
 	public String[] robotCodeMaken() {
 		for ( int x = 0 ; x < 5 ; x++ ) {
 			Random r = new Random();
@@ -17,28 +17,27 @@ public class Robot {
 		}
 		return geheimeCode;
 
-}//endof robotCodeMaken
+	}//endof robotCodeMaken
 	//==========
-	void vergelijkDeGooi(Speler s, String[] g) {
+	void vergelijkDeGooi(Speler s) {
 		//helemaal goed
-		for (int i = 0 ; i < g.length ; i++) {
-		if(geheimeCode[i].equals(g[i])) {
-			s.setGoedCounter(1);
-			
-		System.out.println("Je hebt er " + s.getGoedCounter() + " goed...");	 
-		}else {
-			System.out.println("...dat lijkt er helemáál niet op!");
-		}
-	}
+		for (int i = 0 ; i < geheimeCode.length ; i++) {
+			if(geheimeCode[i].equals(s.gokje[i])) {
+				s.setGoedCounter(1);
 
-		for (int i = 0 ; i < g.length ; i++) {
-		boolean a = Arrays.asList(s.gokje).contains(geheimeCode[i]);
-		if (a)s.bijnaCounter++;
+				boolean a = Arrays.asList(s.gokje).contains(geheimeCode[i]);
+				if (a)s.bijnaCounter++;
+
+			}else {
+				System.out.println("...dat lijkt er helemáál niet op!");
+			}
+		}
+		System.out.println("Je hebt er " + s.getGoedCounter() + " goed...");
+		System.out.println("Je hebt er " + s.getBijnaCounter() + " bijna goed...");
 		s.turnCounter--;
 		System.out.println("(Oh nee! Je hebt nog maar " + s.turnCounter + " beurten om de code te kraken!)");
-		System.out.println("Je hebt er " + s.getBijnaCounter() + " bijna goed...");
+
 		//boolean contains = Arrays.stream(gokje).anyMatch(geheimeCode[0]::equals);
 		//System.out.println("DEBUG2 " + contains + "\n");
-		}
-	}//endof vergelijkDeGooi
-}
+	}
+}//endof vergelijkDeGooi

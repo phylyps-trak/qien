@@ -14,21 +14,19 @@ public class Speler{
 	
 	// dit is de array waar de input in moet
 	String[] gokje = new String[5];
-//==========
+	
+//========			//CONSTRRRRRUCTORRRRR --> nog dingen mee doen
 	Speler(String naam, int a, int b, int c) {
 		this.goedCounter = a;
 		this.bijnaCounter = b;
 		this.turnCounter = c;
 		this.naam = naam;
-		
 	}
 	
-//==========			// speler doet een poging		
+//==========			// de speler doet een poging		
 	void doeEenGooi() {
 		Scanner in = new Scanner(System.in);
-		System.out.println("   _________");
 		System.out.print("-> ");	String line = in.nextLine(); 
-		System.out.println("   _________");
 		//hak de input in stukjes bij de komma, maak hoofdletters van, stop in arra
 		gokje = line.toUpperCase().split(",");
 		System.out.print("\n |");
@@ -41,12 +39,6 @@ public class Speler{
 	}//endof doeEenGooi
 
 //==============		//GETTERs & SETTERs
-	String[] geefGokDoor() {
-		String [] poging = new String[5];
-		poging = gokje;
-		return poging;
-	}
-
 	public int getGoedCounter() {
 		return goedCounter;
 	}
@@ -60,7 +52,7 @@ public class Speler{
 	}
 
 	public void setBijnaCounter(int bijnaCounter) {
-		this.bijnaCounter = bijnaCounter;
+		this.bijnaCounter += bijnaCounter;
 	}
 
 

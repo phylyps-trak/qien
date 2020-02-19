@@ -20,6 +20,7 @@ public class MainMichielMind {
 		SpelVerloop spel1 = new SpelVerloop();
 		Robot robot = new Robot();
 		
+		
 		/*
 		int[] resultaten = robot.vergelijkDeGooi(michiel.gokje);
 		michiel.setGoedCounter(resultaten[0]);
@@ -32,7 +33,7 @@ public class MainMichielMind {
 		spel1.eersteBeurt();
 		while(michiel.turnCounter > 0 ) {
 			michiel.doeEenGooi();
-			robot.vergelijkDeGooi(michiel, michiel.gokje);
+			robot.vergelijkDeGooi(michiel);
 		}
 	}//endof main
 }//endofMichielmind
