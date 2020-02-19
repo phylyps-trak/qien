@@ -19,10 +19,10 @@ public class Robot {
 
 }//endof robotCodeMaken
 	//==========
-	void vergelijkDeGooi(String[] gc, Speler s) {
+	void vergelijkDeGooi(Speler s, String[] g) {
 		//helemaal goed
-		for (int i = 0 ; i < gc.length ; i++) {
-		if(geheimeCode[i].equals(gc[i])) {
+		for (int i = 0 ; i < g.length ; i++) {
+		if(geheimeCode[i].equals(g[i])) {
 			s.setGoedCounter(1);
 			
 		System.out.println("Je hebt er " + s.getGoedCounter() + " goed...");	 
@@ -31,7 +31,7 @@ public class Robot {
 		}
 	}
 
-		for (int i = 0 ; i < gc.length ; i++) {
+		for (int i = 0 ; i < g.length ; i++) {
 		boolean a = Arrays.asList(s.gokje).contains(geheimeCode[i]);
 		if (a)s.bijnaCounter++;
 		s.turnCounter--;

@@ -4,15 +4,24 @@ import java.util.Scanner;
 
 public class Speler{
 	// TODO dynamische naamgeving
-	String naam;
+
 	
 	// tellertjes
-	int goedCounter;
-	int bijnaCounter;
-	int turnCounter = 10;
+	protected int goedCounter = 0;
+	protected int bijnaCounter = 0;
+	protected int turnCounter = 10;
+	protected String naam;
 	
 	// dit is de array waar de input in moet
-	private String[] gokje = new String[5];
+	String[] gokje = new String[5];
+//==========
+	Speler(String naam, int a, int b, int c) {
+		this.goedCounter = a;
+		this.bijnaCounter = b;
+		this.turnCounter = c;
+		this.naam = naam;
+		
+	}
 	
 //==========			// speler doet een poging		
 	void doeEenGooi() {
@@ -31,11 +40,27 @@ public class Speler{
 
 	}//endof doeEenGooi
 
-//==============		//GETTER method
+//==============		//GETTERs & SETTERs
 	String[] geefGokDoor() {
 		String [] poging = new String[5];
 		poging = gokje;
 		return poging;
+	}
+
+	public int getGoedCounter() {
+		return goedCounter;
+	}
+
+	public void setGoedCounter(int goedCounter) {
+		this.goedCounter += goedCounter;
+	}
+
+	public int getBijnaCounter() {
+		return bijnaCounter;
+	}
+
+	public void setBijnaCounter(int bijnaCounter) {
+		this.bijnaCounter = bijnaCounter;
 	}
 
 
