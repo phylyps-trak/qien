@@ -7,14 +7,14 @@ import Mastermind.Speler;
 public class Robot {
 
 	String[] kleuren = {
-			"\033[1;31mA\033[0m",
-			"\033[1;32mB\033[0m",
-			"\033[1;33mC\033[0m",
-			"\033[1;94mD\033[0m",
-			"\033[1;35mE\033[0m",
-			"\033[1;36mF\033[0m",
-			"\033[1;97mG\033[0m",
-			"\033[1;90mH\033[0m"};
+			"A",
+			"B",
+			"C",
+			"D",
+			"E",
+			"F",
+			"G",
+			"H"};
 	String[] geheimeCode = new String[5];
 
 	//========	

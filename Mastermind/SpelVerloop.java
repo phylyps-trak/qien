@@ -48,7 +48,7 @@ public class SpelVerloop{
 	protected String stopDoor() {
 		{
 			System.out.println("\033[0;90m\n================");
-			System.out.println("Wil je nog eens spelen?\n  (type j / n)");
+			System.out.println("Wil je nog eens spelen?\n  (type j / n)\033[0m");
 		}
 		do {
 			this.con = sc.nextLine(); 
@@ -59,7 +59,7 @@ public class SpelVerloop{
 			} else {
 				System.out.println("Je invoer slaat nergens op, gek!");
 			}
-		} while (!con.contentEquals("j\033[0m"));
+		} while (!con.contentEquals("j"));
 		return con;
 	}	
 

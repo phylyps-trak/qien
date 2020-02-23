@@ -81,8 +81,6 @@ public class Speler{
 	}
 
 	void patterntest() {
-
-
 	}
 }//endof Speler
 

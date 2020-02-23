@@ -40,10 +40,10 @@ public class MainMichielMind {
 		}
 		//verliezen of winnen
 		if (michiel.turnCounter <= 1 ) {
-			System.out.println("\033[1;31mDat is jammer, je hebt alle pogingen gebruikt,");
-			System.out.println("maar de code niet gekraakt...\033[0m");
+			System.out.println("\033[1;31mDat is jammer, je hebt alle pogingen gebruikt,\033[0m");
+			System.out.println("\033[1;31mmaar de code niet gekraakt...\033[0m");
 		}else if(michiel.goedCounter == 5) {
-			System.out.println("\033[1;90m\n *** Dikke gefeli, ouwe, je heb gewonne! *** \033[0m");
+			System.out.println("\n\033[1;31m *** Dikke gefeli, ouwe, je heb gewonne! *** \033[0m");
 		}
 		
 		
