@@ -1,4 +1,7 @@
 package Mastermind;
+
+import java.util.Arrays;
+
 /* 
  * 
  * Michiel Janssens
@@ -16,20 +19,36 @@ package Mastermind;
 public class MainMichielMind {
 //====================
 	public static void main(String[] args) {
+//setup dingen, TODO: later dynamisch maken
 		Speler michiel = new Speler("Michiel", 0,0,10);
 		SpelVerloop spel1 = new SpelVerloop();
 		Robot robot = new Robot();
-		robot.robotCodeMaken();
 
+//do while, zodat je kan herstarten als je wil
+		
+		do {
+			//meer setup
+		robot.robotCodeMaken();
 		spel1.welkom();
 		spel1.laatCodeZien(robot.getRobotCode() );
 		spel1.eersteBeurt();
-		 while(michiel.turnCounter > 0 || !(michiel.goedCounter == 5) ) {
+		//spel
+		while(!(michiel.turnCounter < 0) && !((Arrays.equals(michiel.getGokje(), robot.geheimeCode))) ) {
              michiel.reset();
              michiel.doeEenGooi();
-			robot.vergelijkDeGooi(michiel);
-			
+			 robot.vergelijkDeGooi(michiel);	
 		}
+		//verliezen of winnen
+		if (michiel.turnCounter <= 1 ) {
+			System.out.println("\033[1;31mDat is jammer, je hebt alle pogingen gebruikt,");
+			System.out.println("maar de code niet gekraakt...\033[0m");
+		}else if(michiel.goedCounter == 5) {
+			System.out.println("\033[1;90m\n *** Dikke gefeli, ouwe, je heb gewonne! *** \033[0m");
+		}
+		
+		
+		} while (spel1.stopDoor().equals("j"));
+			
 		
 		
 		

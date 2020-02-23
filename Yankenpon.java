@@ -32,6 +32,7 @@ import java.util.Scanner;  // Import the Scanner class
 
 public class Yankenpon {
 	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
 		//new Spel().relaties();
 
@@ -122,17 +123,18 @@ class Spel{
 		} else if ((kP1.contentEquals("r")) && (kP2.contentEquals("x"))) {
 			System.out.println("** You win! **\n  (want "+ kP1 + " beats " +  kP2 + ")");
 		}
-	}
-	String con;
+	}//endof uikomst
+	
 
 	//DOORGAAN OF STOPPEN
 	String stopDoor() {
+		String con;
 		{
 			System.out.println("\n================");
 			System.out.println("Ben je in voor een revanche?\n  (type j / n)");
 		}
 		do {
-			this.con = Yankenpon.sc.nextLine(); 
+			con = Yankenpon.sc.nextLine(); 
 			if (con.contentEquals("n")) {
 				System.out.println("Nou, ga maar lekker iets anders doen dan...");
 			} else if (con.contentEquals("j")) {

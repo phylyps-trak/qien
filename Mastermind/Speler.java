@@ -1,6 +1,8 @@
 package Mastermind;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Speler{
 // TODO dynamische naamgeving
@@ -23,22 +25,38 @@ public class Speler{
 		this.naam = naam;
 	}
 
-//==========			// de speler doet een poging		
+	//==========			// de speler doet een poging		
 	void doeEenGooi() {
-		Scanner in = new Scanner(System.in);
-		System.out.print("-> ");	String line = in.nextLine(); 
-		//hak de input in stukjes bij de komma, maak hoofdletters van, stop in arra
-		this.gokje = line.toUpperCase().split(",");
-		System.out.print("\n |");
-		for(String s: gokje)
-			System.out.print(" " + s +" |");
-		System.out.println(" ");
-		//DEBUG
-		//System.out.println("DEBUG gokje: " + (Arrays.toString(gokje)));
+		Scanner sc = new Scanner(System.in);
+		int inputTest = 0;
+		String pattern = "^([a-h]{1},?[a-h]{1},?[a-h]{1},?[a-h]{1},?[a-h]{1}$)";
 
+		do {
+		Pattern r = Pattern.compile(pattern);
+		System.out.print("-> ");	
+		String line = sc.nextLine();
+//pattern checker
+
+		Matcher m = r.matcher(line);
+		
+		if (m.matches()) {
+//hak de input in stukjes bij de komma, maak hoofdletters van, stop in array gokje
+			this.gokje = line.toUpperCase().split(",");
+			System.out.print("\n |");
+			for(String s: gokje)
+				System.out.print(" " + s +" |");
+			System.out.println(" ");
+			inputTest ++;
+		}else {
+			System.out.println("\033[0;90m\n--- Als je zoiets tiept, werkt het niet...");
+			System.out.println("--- Probeer het nog eens?-----------------\n\033[0m");
+		}
+		
+		}while(inputTest == 0);
+		
 	}//endof doeEenGooi
-
-//==============		//GETTERs & SETTERs & REsetters
+	
+//=============			//GETTERs & SETTERs & REsetters
 	public void reset () {
 		goedCounter = 0;
 		bijnaCounter = 0;
@@ -62,5 +80,10 @@ public class Speler{
 		this.bijnaCounter += bijnaCounter;
 	}
 
+	void patterntest() {
 
+
+	}
 }//endof Speler
+
+
