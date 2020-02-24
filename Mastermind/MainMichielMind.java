@@ -9,9 +9,7 @@ import java.util.Arrays;
  * weekopdracht 2
  * Mastermind
  * 
- * Dankjewel Felix, voor je filmpjes. Beter goed jatten dan slecht zelf verzinnen.
- * (zie mijn vorige mastermind "Meestergeest"...)
- * 
+ * 24/2
  * TODO formaat KLEUREN en GEHEIMECODE en GOKJE dynamisch maken
  * 
  */

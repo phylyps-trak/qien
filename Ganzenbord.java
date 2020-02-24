@@ -19,7 +19,6 @@ public class Ganzenbord {
 //uhm, globale variabelen op class niveau?
 static int positie; 
 static int worp;
-public class Spel{	
 	public static void main(String[] args) {
 		//welkom();
 		
@@ -94,6 +93,4 @@ public static void ennu(int positie, int worp) {
 //gevangenis
 //finish
 //terug naar start
-
-}//endofSpel
 }//endofGanzenbord

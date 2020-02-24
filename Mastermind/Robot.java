@@ -44,8 +44,10 @@ public class Robot {
 			}
 
 		}
-		System.out.print("\033[1;37m ✓  " + s.getGoedCounter() + " goed, ");
-		System.out.print(" ✗  " + s.getBijnaCounter() + " bijna goed...\033[0m");
+		System.out.print("\n\033[0;32m✔\033[0m  " + s.getGoedCounter() + "\033[1;37m  goed, ");
+		System.out.print(" \033[0;36m~\033[0m  " + s.getBijnaCounter() + "\033[1;37m bijna goed, ");
+		int temp = 5 - ( (s.getBijnaCounter()) + (s.getGoedCounter()) );
+		System.out.print(" \033[0;31m✗\033[0m " + temp + "\033[1;37m compleet verkeerd... \033[0m");
 		s.turnCounter--;
 		System.out.println("\033[0;90m\n(...nog maar " + s.turnCounter + " beurten om de code te kraken!)\n\033[0m");
 //}while  (!(Arrays.equals(s.getGokje(), geheimeCode))); 
