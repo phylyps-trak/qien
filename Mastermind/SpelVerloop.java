@@ -22,8 +22,8 @@ public class SpelVerloop{
 	void eersteBeurt() {
 		//eerste beurt
 
-		System.out.println("\n...en nu jij, raden maar!  (format: x,x,x,x,x)");
-		System.out.println("=======================");
+		System.out.println("\n...raden maar!    \033[0;90m(format: x,x,x,x,x)\033[0m");
+		System.out.println("=====================================");
 	}
 //======					//INTRO hahah lekker ascii klooien, heerlijk
 	void welkom() {
@@ -44,7 +44,7 @@ public class SpelVerloop{
 		System.out.println("\n");
 	}//endofwelkom
 	
-//========					//DOORGAAN OF STOPPEN
+//===========				//DOORGAAN OF STOPPEN
 	protected String stopDoor() {
 		{
 			System.out.println("\033[0;90m\n================");
