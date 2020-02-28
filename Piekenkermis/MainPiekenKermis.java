@@ -21,16 +21,12 @@ public class MainPiekenKermis {
 	static Bezoeker felix = new Bezoeker();
 	static Beheerder johan = new Beheerder();
 	
-	public static void main (   String[] args    ) {
-		//alle attracties in een array
-		
-		
-		
+	public static void main (String[] args) {
+
 		welkom();
 		System.out.print("::\033[0m"); String access = sc2.nextLine();
 		
 		if(access.contentEquals("b")) {
-			
 			do {
 				mainBezoeker();
 			}while(true);
@@ -55,6 +51,7 @@ public class MainPiekenKermis {
 		int input = Integer.parseInt(sc.nextLine());
 		johan.statusChecken(input);
 	}//endofMainBeheerder
+	
 	static String welkom() {
 		System.out.println("\n");
 		System.out.println("   ************************");
