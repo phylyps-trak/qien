@@ -7,8 +7,11 @@
  * 	dingen die geleerd zijn:
  * 	- overerfde methode netjes doen
  * 	- DecimalFormat voor weergave prijzen
- * 
- * 
+ * 	- for en while loopjes zo economisch mogelijk maken
+ *  - lekker door de objectarrays heenlopen & methoden roepen 
+ *  - switchen tussen ene en andere modus van user invoer met KAPNAH
+ *  - uitgevonden dat je TEGELIJK de returnwaarde van een methode 
+ *  in een var kan opslaan, EN de methode kan uitvoeren... (39)
  * 
  */
 package Piekenkermis;
@@ -16,53 +19,56 @@ package Piekenkermis;
 import java.util.Scanner;
 
 public class MainPiekenKermis {
+	
 	static Scanner sc = new Scanner(System.in);
 	static Scanner sc2 = new Scanner(System.in);
-	static Techniek t = new Techniek();
 	static Bezoeker felix = new Bezoeker();
 	static Beheerder johan = new Beheerder();
-	static int go = 0;
-
-
+	//switch tussen gebruikers met deze
+	static int kapnah = 0;
+//======================================== MAIN
+	
 	public static void main(String[] args) {
 
 		welkom();
-	
-		
-		allesDraait();
-	
+	  
+		int modus = kiesModus();
+
+		while (true) {
+			if ( kapnah == 1 ) {
+			  modus = kiesModus();
+			  kapnah = 0;
+			}
+			if ( 0 == modus ) {		//YODACODE!
+				mainBezoeker();
+			} else if ( 1 == modus ) {
+				mainBeheerder();
+			}
+		}
 	}// endofmain
-	
-	static void allesDraait() {
-		do {
-			go = 0;
-			System.out.print("\033[3;90m(- bezoekers: type b -)\n(- beheerders type B -) -->\033[0m");
+//======================================== METHODEN
+	static int kiesModus() {
+		while (true) {
+			System.out.print(
+					"\033[3;90m(- bezoekers: type b " +
+					"-)\n(- beheerders type B -) -->\033[0m");
 			String access = sc2.nextLine();
 
 			if (access.contentEquals("b")) {
-				do {
-					mainBezoeker();
-				} while (go == 0);
-				
-			} else if (go == 1) {
-				break;
-				
-			} else if (access.contentEquals("B")) {
-				do {
-					mainBeheerder();
-				} while (go == 0);
-				
-			} else if (go == 1) {
-				break;
+				return 0;
+			} else if ( access.contentEquals("B")) {
+				return 1;
 			} else {
-				System.out.println("Jij heb er een teveel op, ga maar naar huis!");
+				System.out.println(
+						"Jij heb er een teveel op, ga maar naar huis!");		
 			}
-		} while (true);
-		}//endofallesDraait
+		}
+	}//endofkiesmodus
 	
 	
 	static int mainBezoeker() {
-		System.out.print("\n:: Koop hier uw kaartjes! :: ");
+		System.out.print(
+				"\n:: Koop hier uw kaartjes! :: ");
 		int input = Integer.parseInt(sc.nextLine());
 		felix.kaartjekopen(input);
 		return input;
@@ -70,30 +76,22 @@ public class MainPiekenKermis {
 
 	
 	static void mainBeheerder() {
-		double totaalOmzet = (
-				Kermis.rides[0].berekenOmzet() +
-				Kermis.rides[1].berekenOmzet() +
-				Kermis.rides[2].berekenOmzet() +
-				Kermis.rides[3].berekenOmzet() +
-				Kermis.rides[4].berekenOmzet() +
-				Kermis.rides[5].berekenOmzet() );
-		int totaalKaartjes = (
-				Kermis.rides[0].getKaartjes() +
-				Kermis.rides[1].getKaartjes() +
-				Kermis.rides[2].getKaartjes() +
-				Kermis.rides[3].getKaartjes() +
-				Kermis.rides[4].getKaartjes() +
-				Kermis.rides[5].getKaartjes() 
-				);
-		System.out.println(":: ----- totaal omzet: ƒ " + Attractie.df.format(totaalOmzet));
-		System.out.println(":: ----- totaal kaartjes: " + totaalKaartjes);
-		System.out.print("\n:: Kies attractie voor status -->");
+//TODO deze dingen op een andere plek, of als USER O & K ingeeft
+		System.out.println(
+				":: ----- totaal omzet: ƒ " +
+						Attractie.df.format(johan.getTotaalOmzet()));
+		System.out.println(
+				":: ----- totaal kaartjes: " +
+				johan.getTotaalKaartjes());
+		System.out.print(
+				"\n:: Kies attractie voor status -->");
 
 		int input = Integer.parseInt(sc.nextLine());
 		johan.statusChecken(input);
 	}// endofMainBeheerder
+	
 
-	static String welkom() {
+	static void welkom() {
 		System.out.println("\n");
 		System.out.println("   ************************");
 		System.out.println("   **\033[1m  de PIEKEN KERMIS\033[0m  **");
@@ -103,6 +101,5 @@ public class MainPiekenKermis {
 				"...\033[1m1\033[0m..botsauto's...\033[1m2\033[0m..spin.....\033[1m3\033[0m..spiegelpaleis...\n"
 						+ "...\033[1m4\033[0m..spookhuis....\033[1m5\033[0m..hawaii...\033[1m6\033[0m..ladderklimmen...\n"
 						+ "\033[3;90m--------------------------------------------------");
-		return "S";
 	}
 }// endofMainPiekenKermis

@@ -1,7 +1,8 @@
 package Piekenkermis;
 
 public class Kermis {
-	static Attractie[] rides = new Attractie[] {
+	
+	 static Attractie[] rides = new Attractie[] {
 			new Botsautos_0(		"Crash Cars", 2.50, 500 ),					//0
 			new Spin_1(				"Barf Arachnid", 2.25, 300 ),				//1
 			new Spiegelpaleis_3(	"Through the Looking Glass", 2.75, 250 ),	//2	

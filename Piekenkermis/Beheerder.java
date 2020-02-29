@@ -1,37 +1,42 @@
 package Piekenkermis;
 
 public class Beheerder {
+//======================================== METHODEN	
 	void statusChecken(int j) {
-		switch (j) {
-		case 0:		System.out.println(" -----STATUS:  De Botsauto's");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[0].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[0].berekenOmzet());
-		break;
-		case 1:  	System.out.println(" -----STATUS:  De Spin");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[1].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[1].berekenOmzet());
-		break;
-		case 2:  	System.out.println(" -----STATUS:  Het Spiegelpaleis");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[2].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[2].berekenOmzet());
-		break;
-		case 3:  	System.out.println(" -----STATUS:  Spookhuis");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[3].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[3].berekenOmzet());
-		break;
-		case 4:		System.out.println(" -----STATUS:  Hawaii");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[0].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[0].berekenOmzet());
-		break;
-		case 5:		System.out.println(" -----STATUS:  Ladderklimmen");
-					System.out.println(" --# TICKETS:  " + Kermis.rides[0].getKaartjes());
-					System.out.println(" --Σ DONNIES:  " + Kermis.rides[0].berekenOmzet());
-		break;
-		case 9:		System.out.println("\033[3;31m <-- EXIT\033[0m");
-					MainPiekenKermis.go = 1;
-		break;
-		default: 	System.out.println("\033[3;31mDat is geen valide invoer...\033[0m");
-		break;
+		if (j < 9) {
+			System.out.println(
+					"::  -- STATUS:  " +
+					Kermis.rides[j].getNaam());
+			System.out.println(
+					"::  # TICKETS:  " +
+					Kermis.rides[j].getKaartjes());
+			System.out.println(
+					"::  Σ DONNIES:  " +
+					Kermis.rides[j].berekenOmzet());
+		} else if (j == 9) {
+			System.out.println(
+					"\033[3;31m <-- EXIT\033[0m");
+			MainPiekenKermis.kapnah = 1;
+		} else {
+			System.out.println(
+					"\033[3;31mDat is geen valide invoer...\033[0m");
 		}
-	}//endofstatusChecken
-}
+	}// endofstatusChecken
+
+	double getTotaalOmzet() {
+		double to = 0;
+		for (Attractie x : Kermis.rides) {
+			to = to + x.berekenOmzet();
+		}
+		return to;
+	}//endofgetTotaalOmzet
+
+	int getTotaalKaartjes() {
+		int tk = 0;
+		for (Attractie x : Kermis.rides) {
+			tk = tk + x.getKaartjes();
+		}
+		return tk;
+	}//endofgetTotaalKaartjes
+
+}//endofBeheerder

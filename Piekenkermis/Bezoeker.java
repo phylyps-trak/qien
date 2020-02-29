@@ -1,8 +1,7 @@
 package Piekenkermis;
 
 public class Bezoeker {
-
-
+//======================================== METHODEN
 	int kaartjekopen(int i) {
 		switch (i) {
 		case 0:		Kermis.rides[0].draaien();	
@@ -17,10 +16,12 @@ public class Bezoeker {
 		break;
 		case 5:		Kermis.rides[5].draaien();
 		break;
-		case 9:		System.out.println("\033[3;31m <-- EXIT\033[0m");
-					MainPiekenKermis.go = 1;
+		case 9:		System.out.println(
+				"\033[3;31m <-- EXIT\033[0m\n");
+					MainPiekenKermis.kapnah = 1;
 		break;
-		default: 	System.out.println("\033[3;31mDat is geen valide invoer...\033[0m");
+		default: 	System.out.println(
+				"\033[3;31mDat is geen valide invoer...\033[0m");
 		break;
 		}
 		return i;
