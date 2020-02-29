@@ -2,32 +2,27 @@ package Piekenkermis;
 
 public class Bezoeker {
 
-	
+
 	int kaartjekopen(int i) {
 		switch (i) {
-		case 0:		System.out.println("De Botsauto's");
-						Kermis.rides[0].draaien();	
-					System.out.println("DEBUG");
-					System.out.println(Kermis.rides[0].getKaartjes());
-					break;
-		case 1:  	System.out.println("De Spin");
-						Kermis.rides[1].draaien();
-					break;
-		case 2:  	System.out.println("Het Spiegelpaleis");
-						Kermis.rides[2].draaien();			
-					break;
-		case 3:  	System.out.println("Het Spookhuis");
-						Kermis.rides[3].draaien();
-					break;
-		case 4:		System.out.println("Hawaii");
-						Kermis.rides[4].draaien();
-					break;
-		case 5:		System.out.println("Ladderklimmen");
-						Kermis.rides[5].draaien();
+		case 0:		Kermis.rides[0].draaien();	
 		break;
-		default: 	System.out.println("\033[3;31mDat is geen valide keuze...\033[0m");
-					System.out.println("|033[3;90m---------------------------\033[0m");
+		case 1:		Kermis.rides[1].draaien();
+		break;
+		case 2:  	Kermis.rides[2].draaien();			
+		break;
+		case 3:  	Kermis.rides[3].draaien();
+		break;
+		case 4:		Kermis.rides[4].draaien();
+		break;
+		case 5:		Kermis.rides[5].draaien();
+		break;
+		case 9:		System.out.println("\033[3;31m <-- EXIT\033[0m");
+					MainPiekenKermis.go = 1;
+		break;
+		default: 	System.out.println("\033[3;31mDat is geen valide invoer...\033[0m");
+		break;
 		}
-	return i;
+		return i;
 	}//endofkaartjekopen
 }
