@@ -9,10 +9,9 @@ public class Attractie {
 
 	private String naam;
 	private double prijs;
-	private double omzet;
 	private final int opp;
 	private int kaartjes;
-	private double belasting;
+	protected double omzet;
 	
 //======================================== CONSTRUCTOR
 	Attractie(String naam, double prijs, int opp){
@@ -24,16 +23,14 @@ public class Attractie {
 //======================================== METHODEN
 	public void draaien() {
 		kaartjes += 1;
-		System.out.println(this.toString());
-		System.out.println("Veel plezier!");
-		System.out.println("-------------");
+		System.out.println(
+				this.toString());
+		System.out.println(
+				" \033[4;36m     Veel plezier!\033[0m");
+		System.out.println("DEBUG-tickets: " + kaartjes);
+
 	}//endofdraaien
 	
-	double berekenOmzet() {
-		omzet = kaartjes * prijs;
-		return omzet;
-	}//endofberekenOmzet
-
 	@Override
 	public String toString() {
 		return " ***  Welkom bij \033[0;32m" +
@@ -56,10 +53,17 @@ public class Attractie {
 	public void setKaartjes(int kaartjes) {
 		this.kaartjes = kaartjes;
 	}
-	public double getBelasting() {
-		return belasting;
+	double berekenOmzet() {
+		omzet = kaartjes * prijs;
+		return omzet;
+	}//endofberekenOmzet
+	
+	double getOmzet(){
+		return omzet;
 	}
-	public void setBelasting(double belasting) {
-		this.belasting = belasting;
+	
+	void setOmzet(double o) {
+		this.omzet = o;
 	}
+
 }//endofattractie

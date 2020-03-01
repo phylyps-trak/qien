@@ -2,33 +2,29 @@ package Piekenkermis;
 
 import java.util.Scanner;
 
-public class Spin_1 extends RisicoAttractie{
+public class Hawaii_4 extends RisicoAttractie{
 	
 	private int draaiLimiet; 
-	Scanner spinsc = new Scanner(System.in);
+	Scanner hawsc = new Scanner(System.in);
 //======================================== CONSTRUCTOR
-	Spin_1(String naam, double prijs, int opp) {
+	Hawaii_4(String naam, double prijs, int opp) {
 		super(naam, prijs, opp);
 	}
 //======================================== METHODEN	
-	void spinDraai() {
-		if ( draaiLimiet < 5) {
+	void hawaiiDraai() {
+		if ( draaiLimiet < 10) {
 			this.draaien();
 			draaiLimiet += 1;
 		} else {
 			System.out.print(
 					"\033[0;101m Draailimiet bereikt, "
 							+ "bel snel de monteur voor controle!\n (type \"ok\")-->: \033[0m");
-			if (spinsc.nextLine().equals("ok"));
+			if (hawsc.nextLine().equals("ok"));
 				onderhoudsbeurt();
 				System.out.println("DEBUG draailimiet:" + draaiLimiet);
 		}
 	}
-
-	@Override
-	void opstellingskeuring(Attractie a) {		
-	}
-
+	
 	@Override
 	void onderhoudsbeurt() {
 		System.out.println(
@@ -36,13 +32,16 @@ public class Spin_1 extends RisicoAttractie{
 				+ "gaan met die banaan!");
 		setDraaiLimiet(0);
 	}
-
+	@Override
+	public void setDraaiLimiet(int draaiLimiet) {
+		this.draaiLimiet = draaiLimiet;
+	}
+	@Override
+	void opstellingskeuring(Attractie a) {
+		
+	}
 	@Override
 	int getDraaiLimiet() {
 		return draaiLimiet;
 	}
-	public void setDraaiLimiet(int draaiLimiet) {
-		this.draaiLimiet = draaiLimiet;
-	}
-
 }
