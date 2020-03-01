@@ -13,6 +13,13 @@
  *  - uitgevonden dat je TEGELIJK de returnwaarde van een methode 
  *  in een var kan opslaan, EN de methode kan uitvoeren... (39)
  * 
+ * 
+ * TODO abstracte clss risicoattr netjes implementeren: de attr zelf werken wel, 
+ * maar had net zo goed zonder die abstracte gekund...
+ * 
+ * TODO enkele dingen uit de mainbeheerder methode op een andere plek, of als USER O & K ingeeft
+ * 
+ * TODO kassa object toch maar maken, misschien met kopieen van alle nu rondzwervende waarden?
  */
 package Piekenkermis;
 
@@ -50,9 +57,12 @@ public class MainPiekenKermis {
 	static int kiesModus() {
 		while (true) {
 			System.out.print(
-					"\033[3;90m(- bezoekers: type b " +
-					"-)\n(- beheerders type B -) -->\033[0m");
+					"\033[3;90m( bezoekers: b --- beheerder: B ) --> \033[0m");
 			String access = sc2.nextLine();
+			System.out.println(
+					"\033[3;90m----------------------"
+					+ "( EXIT: 0 )-----------------\033[0m");
+			
 
 			if (access.contentEquals("b")) {
 				return 0;
@@ -60,7 +70,8 @@ public class MainPiekenKermis {
 				return 1;
 			} else {
 				System.out.println(
-						"Jij heb er een teveel op, ga maar naar huis!");		
+						"\033[1;33m----> Jij heb er een teveel op, "
+						+ "ga maar naar huis!\033[0m\n");		
 			}
 		}
 	}//endofkiesmodus
@@ -68,7 +79,7 @@ public class MainPiekenKermis {
 	
 	static int mainBezoeker() {
 		System.out.print(
-				"\n:: Koop hier uw kaartjes! :: ");
+				"\n:: \033[4;37mKoop hier uw kaartjes!\033[4;37m ::\033[4;37m attr #: ");
 		int input = Integer.parseInt(sc.nextLine());
 		felix.kaartjekopen(input);
 		return input;
@@ -76,12 +87,11 @@ public class MainPiekenKermis {
 
 	
 	static void mainBeheerder() {
-//TODO deze dingen op een andere plek, of als USER O & K ingeeft
 		System.out.println(
-				":: ----- totaal omzet: ƒ " +
+				"::  ------- totaal omzet: ƒ " +
 						Attractie.df.format(johan.getTotaalOmzet()));
 		System.out.println(
-				":: ----- totaal kaartjes: " +
+				"::  ---- totaal kaartjes: " +
 				johan.getTotaalKaartjes());
 		System.out.print(
 				"\n:: Kies attractie voor status -->");
