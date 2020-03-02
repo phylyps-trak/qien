@@ -25,20 +25,4 @@ public class Beheerder {
 		}
 	}// endofstatusChecken
 
-	double getTotaalOmzet() {
-		double to = 0;
-		for (Attractie x : Kermis.rides) {
-			to = to + x.berekenOmzet();
-		}
-		return to;
-	}//endofgetTotaalOmzet
-
-	int getTotaalKaartjes() {
-		int tk = 0;
-		for (Attractie x : Kermis.rides) {
-			tk = tk + x.getKaartjes();
-		}
-		return tk;
-	}//endofgetTotaalKaartjes
-
 }//endofBeheerder

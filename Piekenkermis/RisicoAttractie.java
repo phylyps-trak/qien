@@ -12,7 +12,7 @@ public abstract class RisicoAttractie extends Attractie{
 		super(naam, prijs, opp);
 	}
 
-	abstract void opstellingskeuring(Attractie a);
+	abstract void opstellingskeuring() throws Exception;
 
 	
 	abstract void onderhoudsbeurt();

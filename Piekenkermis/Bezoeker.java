@@ -20,7 +20,6 @@ public class Bezoeker {
 		//hawaii
 		break;
 		case 6:		Kermis.rides[5].draaien();
-					((Ladderklimmen_5) Kermis.rides[5]).kansspelBelasting();
 		//ladderklimmen
 		break;
 		case 0:		System.out.println(

@@ -13,6 +13,12 @@
  *  - uitgevonden dat je TEGELIJK de returnwaarde van een methode 
  *  in een var kan opslaan, EN de methode kan uitvoeren... (39)
  * 
+ * VRAAG: hoe kan ik de Belastinginspecteur de juiste attracties eruit laten pikken? (methode heffen)
+ * VRAAG: hoe moet ik de abstracte class juist gebruiken? Ze zijn nu eigenlijk individueel
+ * VRAAG: ik weet niet hoe je op een handige manier die exceptions in je structuur bouwt.
+ * 
+ * VRAAG ik wil al die functionalisteit UIT de static context slopen, en in objecten stoppen.
+ * Hoe pak je dat aan? Hoe kan ik dat hier achteraf inregelen?
  * 
  * TODO abstracte clss risicoattr netjes implementeren: de attr zelf werken wel, 
  * maar had net zo goed zonder die abstracte gekund...
@@ -20,6 +26,8 @@
  * TODO enkele dingen uit de mainbeheerder methode op een andere plek, of als USER O & K ingeeft
  * 
  * TODO kassa object toch maar maken, misschien met kopieen van alle nu rondzwervende waarden?
+ * 
+ * TODO zorgen dat foutieve input in keuzemenu beter wordt opgevangen
  */
 package Piekenkermis;
 
@@ -31,6 +39,8 @@ public class MainPiekenKermis {
 	static Scanner sc2 = new Scanner(System.in);
 	static Bezoeker felix = new Bezoeker();
 	static Beheerder johan = new Beheerder();
+	static BelastingInspecteur jos = new BelastingInspecteur();
+	static Kassa k = new Kassa();
 	//switch tussen gebruikers met deze
 	static int kapnah = 0;
 //======================================== MAIN
@@ -53,7 +63,7 @@ public class MainPiekenKermis {
 			}
 		}
 	}// endofmain
-//======================================== METHODEN
+//======================================== METHODEN	
 	static int kiesModus() {
 		while (true) {
 			System.out.print(
@@ -79,7 +89,7 @@ public class MainPiekenKermis {
 	
 	static int mainBezoeker() {
 		System.out.print(
-				"\n:: \033[4;37mKoop hier uw kaartjes!\033[4;37m ::\033[4;37m attr #: ");
+				"\n:: \033[4;37mKoop hier uw kaartjes!\033[0;m :: attr #: ");
 		int input = Integer.parseInt(sc.nextLine());
 		felix.kaartjekopen(input);
 		return input;
@@ -87,17 +97,21 @@ public class MainPiekenKermis {
 
 	
 	static void mainBeheerder() {
+		if ( (k.getTotaalKaartjes()) > 15 ){
+			jos.inspecteurOpJeDak();
+		}else {
 		System.out.println(
-				"::  ------- totaal omzet: ƒ " +
-						Attractie.df.format(johan.getTotaalOmzet()));
+				"\n::  ------- totaal omzet: ƒ " +
+						Attractie.df.format(k.getTotaalOmzet()));
 		System.out.println(
 				"::  ---- totaal kaartjes: " +
-				johan.getTotaalKaartjes());
+				k.getTotaalKaartjes());
 		System.out.print(
 				"\n:: Kies attractie voor status -->");
 
 		int input = Integer.parseInt(sc.nextLine());
 		johan.statusChecken(input);
+		}
 	}// endofMainBeheerder
 	
 

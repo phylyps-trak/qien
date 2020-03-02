@@ -12,19 +12,23 @@ public class Hawaii_4 extends RisicoAttractie{
 	}
 //======================================== METHODEN	
 	void hawaiiDraai() {
-		if ( draaiLimiet < 10) {
+		try {   
 			this.draaien();
 			draaiLimiet += 1;
-		} else {
+			if (draaiLimiet > 10 ) {
+				throw new risicoException();
+			}
+		}catch (Exception e) {
 			System.out.print(
 					"\033[0;101m Draailimiet bereikt, "
 							+ "bel snel de monteur voor controle!\n (type \"ok\")-->: \033[0m");
-			if (hawsc.nextLine().equals("ok"));
+			if (hawsc.nextLine().equals("ok")){
 				onderhoudsbeurt();
 				System.out.println("DEBUG draailimiet:" + draaiLimiet);
+			}
 		}
 	}
-	
+
 	@Override
 	void onderhoudsbeurt() {
 		System.out.println(
@@ -32,16 +36,24 @@ public class Hawaii_4 extends RisicoAttractie{
 				+ "gaan met die banaan!");
 		setDraaiLimiet(0);
 	}
+	
 	@Override
 	public void setDraaiLimiet(int draaiLimiet) {
 		this.draaiLimiet = draaiLimiet;
 	}
 	@Override
-	void opstellingskeuring(Attractie a) {
-		
-	}
-	@Override
 	int getDraaiLimiet() {
 		return draaiLimiet;
+	}
+	@Override
+	void opstellingskeuring() throws Exception {
+		if ( draaiLimiet < 10) {
+			this.draaien();
+			draaiLimiet += 1;
+		}
+	}
+	class risicoException extends Exception {
+		
+		
 	}
 }
