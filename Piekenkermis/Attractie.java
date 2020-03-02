@@ -12,8 +12,11 @@ public class Attractie {
 	private final int opp;
 	private int kaartjes;
 	protected double omzet;
+<<<<<<< HEAD
 
 	public boolean gokken = false;
+=======
+>>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 	
 //======================================== CONSTRUCTOR
 	Attractie(String naam, double prijs, int opp){

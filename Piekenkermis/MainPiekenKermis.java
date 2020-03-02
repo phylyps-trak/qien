@@ -13,12 +13,15 @@
  *  - uitgevonden dat je TEGELIJK de returnwaarde van een methode 
  *  in een var kan opslaan, EN de methode kan uitvoeren... (39)
  * 
+<<<<<<< HEAD
  * VRAAG: hoe kan ik de Belastinginspecteur de juiste attracties eruit laten pikken? (methode heffen)
  * VRAAG: hoe moet ik de abstracte class juist gebruiken? Ze zijn nu eigenlijk individueel
  * VRAAG: ik weet niet hoe je op een handige manier die exceptions in je structuur bouwt.
  * 
  * VRAAG ik wil al die functionalisteit UIT de static context slopen, en in objecten stoppen.
  * Hoe pak je dat aan? Hoe kan ik dat hier achteraf inregelen?
+=======
+>>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
  * 
  * TODO abstracte clss risicoattr netjes implementeren: de attr zelf werken wel, 
  * maar had net zo goed zonder die abstracte gekund...
@@ -26,8 +29,11 @@
  * TODO enkele dingen uit de mainbeheerder methode op een andere plek, of als USER O & K ingeeft
  * 
  * TODO kassa object toch maar maken, misschien met kopieen van alle nu rondzwervende waarden?
+<<<<<<< HEAD
  * 
  * TODO zorgen dat foutieve input in keuzemenu beter wordt opgevangen
+=======
+>>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
  */
 package Piekenkermis;
 
@@ -89,7 +95,11 @@ public class MainPiekenKermis {
 	
 	static int mainBezoeker() {
 		System.out.print(
+<<<<<<< HEAD
 				"\n:: \033[4;37mKoop hier uw kaartjes!\033[0;m :: attr #: ");
+=======
+				"\n:: \033[4;37mKoop hier uw kaartjes!\033[4;37m ::\033[4;37m attr #: ");
+>>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 		int input = Integer.parseInt(sc.nextLine());
 		felix.kaartjekopen(input);
 		return input;
@@ -97,6 +107,7 @@ public class MainPiekenKermis {
 
 	
 	static void mainBeheerder() {
+<<<<<<< HEAD
 		if ( (k.getTotaalKaartjes()) > 15 ){
 			jos.inspecteurOpJeDak();
 		}else {
@@ -106,6 +117,14 @@ public class MainPiekenKermis {
 		System.out.println(
 				"::  ---- totaal kaartjes: " +
 				k.getTotaalKaartjes());
+=======
+		System.out.println(
+				"::  ------- totaal omzet: ƒ " +
+						Attractie.df.format(johan.getTotaalOmzet()));
+		System.out.println(
+				"::  ---- totaal kaartjes: " +
+				johan.getTotaalKaartjes());
+>>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 		System.out.print(
 				"\n:: Kies attractie voor status -->");
 
