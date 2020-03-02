@@ -12,11 +12,8 @@ public class Attractie {
 	private final int opp;
 	private int kaartjes;
 	protected double omzet;
-<<<<<<< HEAD
 
 	public boolean gokken = false;
-=======
->>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 	
 //======================================== CONSTRUCTOR
 	Attractie(String naam, double prijs, int opp){
@@ -31,7 +28,7 @@ public class Attractie {
 		System.out.println(
 				this.toString());
 		System.out.println(
-				" \033[4;36m     Veel plezier!\033[0m");
+				"      \033[4;36mVeel plezier!\033[0m");
 		System.out.println("DEBUG-tickets: " + kaartjes);
 
 	}//endofdraaien

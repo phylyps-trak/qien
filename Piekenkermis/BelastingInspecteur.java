@@ -6,7 +6,7 @@ public class BelastingInspecteur {
 	
 	void heffen() {
 		for (Attractie x : Kermis.rides) {
-			if( x.gokken = true) {
+			if( x.gokken = true ) {
 				schatkist +=
 						(((GokAttractie)x).kansspelBelasting());
 			}else { System.out.println("niksaandehand");
