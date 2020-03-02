@@ -12,8 +12,6 @@ public abstract class RisicoAttractie extends Attractie{
 		super(naam, prijs, opp);
 	}
 
-	abstract void opstellingskeuring() throws Exception;
-
 	
 	abstract void onderhoudsbeurt();
 
@@ -21,6 +19,9 @@ public abstract class RisicoAttractie extends Attractie{
 
 	public void setDraaiLimiet(int draaiLimiet) {
 		this.draaiLimiet = draaiLimiet;
+	}
+
+	void opstellingskeuring() throws Exception {		
 	}
 	
 	

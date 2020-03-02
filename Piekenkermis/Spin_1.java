@@ -26,7 +26,7 @@ public class Spin_1 extends RisicoAttractie{
 	}
 
 	@Override
-	void opstellingskeuring(Attractie a) {		
+	void opstellingskeuring() {		
 	}
 
 	@Override

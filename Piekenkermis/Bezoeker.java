@@ -1,8 +1,10 @@
 package Piekenkermis;
 
+import Piekenkermis.Hawaii_4.RisicoException;
+
 public class Bezoeker {
 //======================================== METHODEN
-	int kaartjekopen(int i) {
+	int kaartjekopen(int i) throws RisicoException {
 		switch (i) {
 		case 1:		Kermis.rides[0].draaien();	
 		//botsautos
@@ -20,15 +22,11 @@ public class Bezoeker {
 		//hawaii
 		break;
 		case 6:		Kermis.rides[5].draaien();
-<<<<<<< HEAD
-=======
-					((Ladderklimmen_5) Kermis.rides[5]).kansspelBelasting();
->>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 		//ladderklimmen
 		break;
 		case 0:		System.out.println(
 				"\033[3;31m <-- EXIT\033[0m\n");
-					MainPiekenKermis.kapnah = 1;
+					MainPiekenKermis.x.kapnah = 1;
 		break;
 		default: 	System.out.println(
 				"\033[3;31mDat is geen valide invoer...\033[0m");

@@ -11,40 +11,13 @@ public class Hawaii_4 extends RisicoAttractie{
 		super(naam, prijs, opp);
 	}
 //======================================== METHODEN	
-	void hawaiiDraai() {
-<<<<<<< HEAD
-		try {   
+	void hawaiiDraai() throws RisicoException{  
 			this.draaien();
 			draaiLimiet += 1;
-			if (draaiLimiet > 10 ) {
-				throw new risicoException();
-			}
-		}catch (Exception e) {
-			System.out.print(
-					"\033[0;101m Draailimiet bereikt, "
-							+ "bel snel de monteur voor controle!\n (type \"ok\")-->: \033[0m");
-			if (hawsc.nextLine().equals("ok")){
-				onderhoudsbeurt();
-				System.out.println("DEBUG draailimiet:" + draaiLimiet);
-			}
-		}
+			if (draaiLimiet > 10 ) 
+				throw new RisicoException();
 	}
 
-=======
-		if ( draaiLimiet < 10) {
-			this.draaien();
-			draaiLimiet += 1;
-		} else {
-			System.out.print(
-					"\033[0;101m Draailimiet bereikt, "
-							+ "bel snel de monteur voor controle!\n (type \"ok\")-->: \033[0m");
-			if (hawsc.nextLine().equals("ok"));
-				onderhoudsbeurt();
-				System.out.println("DEBUG draailimiet:" + draaiLimiet);
-		}
-	}
-	
->>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 	@Override
 	void onderhoudsbeurt() {
 		System.out.println(
@@ -52,16 +25,12 @@ public class Hawaii_4 extends RisicoAttractie{
 				+ "gaan met die banaan!");
 		setDraaiLimiet(0);
 	}
-<<<<<<< HEAD
 	
-=======
->>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
 	@Override
 	public void setDraaiLimiet(int draaiLimiet) {
 		this.draaiLimiet = draaiLimiet;
 	}
 	@Override
-<<<<<<< HEAD
 	int getDraaiLimiet() {
 		return draaiLimiet;
 	}
@@ -72,16 +41,17 @@ public class Hawaii_4 extends RisicoAttractie{
 			draaiLimiet += 1;
 		}
 	}
-	class risicoException extends Exception {
+	class RisicoException extends Exception {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		
-		
-=======
-	void opstellingskeuring(Attractie a) {
 		
 	}
-	@Override
-	int getDraaiLimiet() {
-		return draaiLimiet;
->>>>>>> e989653887baf4ccc93cccd5ca92de8973e72782
+	void opstellingskeuring(Attractie a) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }
