@@ -45,8 +45,7 @@ public class Robot {
 		System.out.print(" \033[0;31m✗\033[0m " +
 				temp + "\033[1;37m compleet verkeerd... \033[0m");
 	//beurt voorbij, print hoeveel nog te gaan
-		s.turnCounter--;
-		System.out.println("\033[3;90m\n(nog 9 beurten om de code te kraken!)\n\033[0m");                             	
+		System.out.println("\033[3;90m\n(nog " + --s.turnCounter + " beurten om de code te kraken!)\n\033[0m");                             	
 	
 	}//endof vergelijkDeGooi
 }

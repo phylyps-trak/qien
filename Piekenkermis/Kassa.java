@@ -2,21 +2,27 @@ package Piekenkermis;
 
 public class Kassa {
 	
-	private double kassaTotaalOmzet = getTotaalOmzet();
+	private double to = 0;
 	private int kassaTotaalKaartjes = getTotaalKaartjes();
+	Kermis kermis;
 	
+	Kassa(Kermis q){
+		this.kermis = q;
+	}
 	
-	double getTotaalOmzet() {
-		double to = 0;
-		for (Attractie x : Kermis.rides) {
+	void berekenTotaalOmzet() {
+		for (Attractie x : kermis.rides) {
 			to = to + x.berekenOmzet();
 		}
-		return to;
 	}//endofgetTotaalOmzet
+	
+	double getTotaalOmzet() {
+		return to;
+	}
 
 	int getTotaalKaartjes() {
 		int tk = 0;
-		for (Attractie x : Kermis.rides) {
+		for (Attractie x : kermis.rides) {
 			tk = tk + x.getKaartjes();
 		}
 		return tk;

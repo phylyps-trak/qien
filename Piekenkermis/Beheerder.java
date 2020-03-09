@@ -18,7 +18,7 @@ public class Beheerder {
 		} else if (j == 0) {
 			System.out.println(
 					"\033[3;31m <-- EXIT\033[0m");
-			MainPiekenKermis.kapnah = 1;
+				x.kapnah = 1;
 		} else {
 			System.out.println(
 					"\033[3;31mDat is geen valide invoer...\033[0m");
