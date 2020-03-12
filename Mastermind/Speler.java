@@ -12,15 +12,17 @@ public class Speler{
 	protected int goedCounter = 0;
 	protected int bijnaCounter = 0;
 	protected int turnCounter = 10;
+	protected int foutCounter = 0;
 	protected String naam;
 
 // dit is de array waar de input in moet
 	protected String[] gokje;
 
 //========				//CONSTRRRRRUCTORRRRR --> nog dingen mee doen
-	Speler(String naam, int a, int b, int c) {
+	Speler(String naam, int a, int b, int c, int e) {
 		this.goedCounter = a;
 		this.bijnaCounter = b;
+		this.foutCounter = e;
 		this.turnCounter = c;
 		this.naam = naam;
 	}
@@ -64,12 +66,16 @@ public class Speler{
 	public void reset () {
 		goedCounter = 0;
 		bijnaCounter = 0;
+		foutCounter = 0;
 	}
 	public String[] getGokje() {
 		return gokje;
 	}
 	public int getGoedCounter() {
 		return goedCounter;
+	}
+	public int getFoutCounter() {
+		return foutCounter;
 	}
 
 	public void setGoedCounter(int goedCounter) {
@@ -82,6 +88,9 @@ public class Speler{
 
 	public void setBijnaCounter(int bijnaCounter) {
 		this.bijnaCounter += bijnaCounter;
+	}
+	public void setFoutCounter(int foutCounter) {
+		this.foutCounter += foutCounter;
 	}
 
 }//endof Speler

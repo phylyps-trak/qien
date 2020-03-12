@@ -32,7 +32,7 @@ public class MainMichielMind {
 	public static void main(String[] args) {
 		
 	//setup dingen, TODO: later dynamisch maken
-		Speler michiel = new Speler("Michiel", 0,0,10);
+		Speler michiel = new Speler("Michiel", 0,0,10,0);
 		SpelVerloop spel1 = new SpelVerloop();
 		Robot robot = new Robot();
 
@@ -41,23 +41,24 @@ public class MainMichielMind {
 	//meer setup
 		robot.robotCodeMaken();
 		spel1.welkom();
-		spel1.laatCodeZien( robot.getRobotCode() );
+
 		spel1.eersteBeurt();
 	//spel
-		while 	(!(michiel.turnCounter < 0) &&
+		while 	(!(michiel.turnCounter < 1) &&
 				!((Arrays.equals(michiel.getGokje(), robot.geheimeCode))) ) {
              michiel.reset();
              michiel.doeEenGooi();
 			 robot.vergelijkDeGooi(michiel);	
 		}
 	//verliezen of winnen
-		if (michiel.turnCounter <= 1 ) {
+		if(michiel.goedCounter == 5) {
+			System.out.println("\n\033[1;32m *** Dikke gefeli, ouwe, je heb gewonne! *** \033[0m");
+		}else if(michiel.turnCounter < 1 ) {
 			System.out.println(
 					"\033[1;31mDat is jammer, je hebt alle pogingen gebruikt,\033[0m");
 			System.out.println(
 					"\033[1;31mmaar de code niet gekraakt...\033[0m");
-		}else if(michiel.goedCounter == 5) {
-			System.out.println("\n\033[1;31m *** Dikke gefeli, ouwe, je heb gewonne! *** \033[0m");
+			spel1.laatCodeZien( robot.getRobotCode() );
 		}
 	//DOORGAAN!!
 		} while (spel1.stopDoor().equals("j"));
